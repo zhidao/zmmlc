@@ -1,0 +1,89 @@
+static char *msghd[] = {
+  "ZMMLC version",
+  "Error",
+  "Warning",
+  "compile track no.",
+  "...",
+  "MML file",
+  "open MML file",
+  "",
+  "SMF format",
+  "number of tracks",
+  "time base",
+  "track size",
+  "Bytes",
+  "marging temporary file..",
+  "compiled as SMF format0",
+  "compiled as SMF format1",
+  "output .mid file",
+  "",
+  "aborted",
+
+  "usage: zmmlc [options] <MML file>",
+  "[options]",
+  " -o<output SMF> set output SMF name",
+  " -f<format>     set SMF format (format must be 0 or 1)",
+  " -T<timebase>   set timebase",
+  " -v             verbose",
+  " -h             help",
+};
+
+static char *errmsg[] = {
+  /* mpublic */
+  "cannot open file",
+  "cannot allocate memory",
+  /* mparse */
+  "missing chord terminator",
+  "missing repeat terminator",
+  "missing environment terminator",
+  "mismatch chord terminator",
+  "repeat times indicator is only usable within repeat",
+  "mismatch repeat terminator",
+  "undefined meta command",
+  "undefined channel command",
+  "undefined macro",
+  /* meval */
+  "note number must be specified",
+  "note number out of range",
+  "negative length",
+  "velocity out of range",
+  "control number must be specified",
+  "value out of range",
+  "invalid gradation curve specification",
+  "demominator of a gate time mustn't be 0!",
+  "unable to use within sequencial note",
+  "unable to use SMF format2",
+  "invalid SMF format specification",
+  "invalid note for beat specification",
+  "invalid code specification",
+  "channel no. must be within 1-16",
+  "channel not found",
+  "invalid specification of track no.",
+  "invalid command definition",
+  "command key must be one charactor",
+  "unknown command",
+  "invalid macro definition",
+  "invalid variable name",
+  "argument has no effect",
+  "repeat time does not coincide",
+  "probablly unsuitable timebase",
+  "already been defined, would be overwrote",
+  "invalid compilation mask",
+  "no correspondent repeat",
+  "no correspondent tocoda",
+  /* mcompile */
+  "*** COMPILER INNER ERROR ! ***",
+  "I need your help to debug! Please report me with your MML code _o/|_",
+  "warnings",
+  "errors",
+  /* command line */
+  "output file name must be specified",
+  "invalid option",
+  "MML file name must be specified",
+};
+
+void MLINE(int linenum)
+{
+  sprintf( merrormsg, "line %d: ", linenum );
+  MERROROUT();
+}

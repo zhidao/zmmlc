@@ -1,0 +1,27 @@
+CC=bcc32
+CFLAGS=-w -O2 -I../include
+
+## uncomment the following line when you want to
+## make it in debugging mode.
+#CFLAGS=-w -O2 -DDEBUG -I../include
+
+LANG=SHIFT_JIS
+
+OBJ= mpublic.obj mstring.obj \
+	mcell.obj mcmd.obj mmacro.obj mmeta.obj \
+	mparse.obj \
+	mmidi.obj mevent.obj mtrack.obj \
+	meval.obj mcompile.obj
+
+TARGET=zmmlc
+
+.c.obj:
+	$(CC) $(CFLAGS) -c $<
+
+all: $(TARGET).exe
+$(TARGET).exe: $(TARGET).c $(OBJ)
+	$(CC) $(CFLAGS) $?
+mpublic.obj: mpublic.c
+	$(CC) $(CFLAGS) -DLANG=$(LANG) -c mpublic.c
+clean:
+	del $(OBJ) $(TARGET).exe $(TARGET).obj $(TARGET).tds

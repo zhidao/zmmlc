@@ -1,0 +1,27 @@
+CC=gcc
+CFLAGS=-ansi -Wall -O3 -I../include
+
+## uncomment the following line when you want to
+## make it in debugging mode.
+#CFLAGS=-ansi -Wall -O3 -DDEBUG -I../include
+
+LANG=EUC_JP
+
+OBJ= mpublic.o mstring.o \
+	mcell.o mcmd.o mmacro.o mmeta.o \
+	mparse.o \
+	mmidi.o mevent.o mtrack.o \
+	meval.o mcompile.o
+
+TARGET=zmmlc
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<
+
+all: $(TARGET)
+zmmlc: zmmlc.c $(OBJ)
+	$(CC) $(CFLAGS) -o $(TARGET) $^
+mpublic.o: mpublic.c
+	$(CC) $(CFLAGS) -DLANG=$(LANG) -c $<
+clean:
+	rm -f *~ $(OBJ) $(TARGET)

@@ -1,0 +1,28 @@
+#title ä^ÇÃéç
+#timebase 96
+#beat 1,4/4
+#code CMajor
+#copyright Zhidao
+#play 1,2
+
+#instrument 1, "piano 1"
+#instrument 2, "piano 2"
+
+#sync
+1: E$41,$10,$42,$12,$40,$00,$7f,$00,$41,$f7 r4
+
+#sync
+1:     i1,0,0 X127 p90 R60 C20 v90
+2: r64 i1,0,0 X127 p30 R90 C40 v80
+
+1: r4 V127 t88 r2
+
+#sync
+
+2: r1
+
+1,2: l8 o4 q6
+1,2: c)d)e)f(e(d(cr
+1,2: e)f)g)a(g(f(er
+1,2: crcrcrcr
+1,2: l16 cc)dd)ee)ff(er(dr(c4
